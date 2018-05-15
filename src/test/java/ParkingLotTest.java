@@ -35,6 +35,17 @@ public class ParkingLotTest {
 
     @Test
     public void should_get_indicated_vehicle_when_get_vehicle_via_park_ticket() throws Exception {
+        //given
+        Parkinglot parkinglot = new Parkinglot(1);
+        Vehicle vehicle = new Vehicle();
+        String ticket = parkinglot.parking(vehicle);
+        //when
+        Vehicle pickedVehicle = parkinglot.pickUp(ticket);
+
+        //then
+        assertEquals(vehicle, pickedVehicle);
 
     }
+
+
 }

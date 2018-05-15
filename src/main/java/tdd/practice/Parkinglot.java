@@ -1,13 +1,20 @@
 package tdd.practice;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by jxzhong on 2018/5/15.
  */
 public class Parkinglot {
     private final int totalPlaceNum;
+    private int baseTicket;
+    private Map<String, Vehicle> parkingRooms;
 
     public Parkinglot(int totalPlaceNum) {
         this.totalPlaceNum = totalPlaceNum;
+        this.parkingRooms = new HashMap<String, Vehicle>();
+        this.baseTicket = 100;
     }
 
     public int getAvailableNums() {
@@ -15,6 +22,12 @@ public class Parkinglot {
     }
 
     public String parking(Vehicle vehicle) {
-        return "123";
+        String newTicket = String.valueOf(this.baseTicket++);
+        this.parkingRooms.put(newTicket, vehicle);
+        return newTicket;
+    }
+
+    public Vehicle pickUp(String ticket) {
+        return this.parkingRooms.get(ticket);
     }
 }
