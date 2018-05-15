@@ -65,4 +65,19 @@ public class ParkingLotTest {
 
         //then
     }
+
+    @Test
+    public void should_get_2_available_parking_room_when_parking_lot_has_3_rooms_with_two_vehicle_parked() throws Exception {
+        //given
+        Parkinglot parkinglot = new Parkinglot(3);
+        Vehicle vehicle = new Vehicle();
+        String ticket1 = parkinglot.parking(vehicle);
+
+        //when
+        int availableNum = parkinglot.getAvailableNums();
+
+        //then
+        assertEquals(2, availableNum);
+    }
+
 }

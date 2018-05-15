@@ -18,7 +18,7 @@ public class Parkinglot {
     }
 
     public int getAvailableNums() {
-        return 1;
+        return this.totalPlaceNum - parkingRooms.size();
     }
 
     public String parking(Vehicle vehicle) {
