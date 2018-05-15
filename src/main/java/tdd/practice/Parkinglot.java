@@ -14,7 +14,7 @@ public class Parkinglot {
         return 1;
     }
 
-    public boolean parking(Vehicle vehicle) {
-        return true;
+    public String parking(Vehicle vehicle) {
+        return "123";
     }
 }

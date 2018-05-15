@@ -26,9 +26,15 @@ public class ParkingLotTest {
         Parkinglot parkinglot = new Parkinglot(1);
         Vehicle vehicle = new Vehicle();
         //when
-        boolean isSuccess = parkinglot.parking(vehicle);
+        String ticket = parkinglot.parking(vehicle);
 
         //then
-        assertEquals(true, isSuccess);
+
+        assertEquals(3, ticket.length());
+    }
+
+    @Test
+    public void should_get_indicated_vehicle_when_get_vehicle_via_park_ticket() throws Exception {
+
     }
 }
