@@ -1,6 +1,6 @@
+package tdd.practice;
+
 import org.junit.Test;
-import tdd.practice.Parkinglot;
-import tdd.practice.Vehicle;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotSame;
