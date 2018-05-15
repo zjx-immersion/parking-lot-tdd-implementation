@@ -1,5 +1,6 @@
 import org.junit.Test;
 import tdd.practice.Parkinglot;
+import tdd.practice.Vehicle;
 
 import static junit.framework.Assert.assertEquals;
 
@@ -16,8 +17,18 @@ public class ParkingLotTest {
         int availableNum = parkinglot.getAvailableNums();
 
         //then
-        assertEquals(availableNum, 1);
+        assertEquals(1, availableNum);
     }
 
+    @Test
+    public void should_parking_vehicle_success_when_call_packing() throws Exception {
+        //given
+        Parkinglot parkinglot = new Parkinglot(1);
+        Vehicle vehicle = new Vehicle();
+        //when
+        boolean isSuccess = parkinglot.parking(vehicle);
 
+        //then
+        assertEquals(true, isSuccess);
+    }
 }

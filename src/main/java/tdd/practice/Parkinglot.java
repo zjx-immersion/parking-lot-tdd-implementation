@@ -13,4 +13,8 @@ public class Parkinglot {
     public int getAvailableNums() {
         return 1;
     }
+
+    public boolean parking(Vehicle vehicle) {
+        return true;
+    }
 }
