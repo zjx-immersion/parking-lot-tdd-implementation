@@ -40,4 +40,8 @@ public class ParkingLot {
     public boolean hasVehicle(String ticket) {
         return parkingRooms.containsKey(ticket);
     }
+
+    public double getAvailableRate() {
+        return this.getAvailableNums() / this.totalPlaceNum;
+    }
 }
