@@ -9,4 +9,6 @@ public interface Parkable {
     Vehicle pickUp(String ticket);
 
     int getAvailableNums();
+
+    boolean hasVehicle(String ticket);
 }

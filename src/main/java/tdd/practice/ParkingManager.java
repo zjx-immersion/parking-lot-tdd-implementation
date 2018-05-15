@@ -15,7 +15,18 @@ public class ParkingManager {
 
     public String parking(Vehicle vehicle) {
         return parkableList.stream()
-                .filter(parkable -> parkable.getAvailableNums() > 0)
+                .filter(parkable -> isFull(parkable))
                 .findFirst().get().parking(vehicle);
+    }
+
+    private boolean isFull(Parkable parkable) {
+        return parkable.getAvailableNums() > 0;
+    }
+
+    public Vehicle pickUp(String ticket) {
+        return parkableList.stream()
+                .filter(parkable -> parkable.hasVehicle(ticket))
+                .findFirst().get()
+                .pickUp(ticket);
     }
 }

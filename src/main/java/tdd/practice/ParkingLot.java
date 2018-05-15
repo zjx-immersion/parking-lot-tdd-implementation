@@ -8,13 +8,13 @@ import java.util.Map;
  */
 public class ParkingLot implements Parkable {
     private final int totalPlaceNum;
-    private int baseTicket;
+    private static int baseTicket = 100;
     private Map<String, Vehicle> parkingRooms;
 
     public ParkingLot(int totalParkingRoomNum) {
         this.totalPlaceNum = totalParkingRoomNum;
         this.parkingRooms = new HashMap<String, Vehicle>();
-        this.baseTicket = 100;
+//        this.baseTicket = 100;
     }
 
     public int getAvailableNums() {
@@ -24,10 +24,10 @@ public class ParkingLot implements Parkable {
     @Override
     public String parking(Vehicle vehicle) {
 
-        if(this.parkingRooms.size() >= this.totalPlaceNum){
+        if (this.parkingRooms.size() >= this.totalPlaceNum) {
             throw new IndexOutOfBoundsException("Parking Rooms are full!");
         }
-        String newTicket = String.valueOf(this.baseTicket++);
+        String newTicket = String.valueOf(baseTicket++);
         this.parkingRooms.put(newTicket, vehicle);
         return newTicket;
     }
@@ -46,4 +46,6 @@ public class ParkingLot implements Parkable {
     public double getAvailableRate() {
         return this.getAvailableNums() / this.totalPlaceNum;
     }
+
+
 }

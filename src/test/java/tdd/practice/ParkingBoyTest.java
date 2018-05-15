@@ -3,6 +3,7 @@ package tdd.practice;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertNotSame;
 
 /**
  * Created by jxzhong on 2018/5/15.
@@ -36,12 +37,13 @@ public class ParkingBoyTest {
         String ticket1 = parkingBoy.parking(vehicle1);
         String ticket2 = parkingBoy.parking(vehicle2);
         //when
-        Vehicle pickedVehicle1 = parkingBoy.pickUp(ticket2);
         Vehicle pickedVehicle2 = parkingBoy.pickUp(ticket2);
+        Vehicle pickedVehicle1 = parkingBoy.pickUp(ticket1);
 
         //then
         assertEquals(vehicle1, pickedVehicle1);
         assertEquals(vehicle2, pickedVehicle2);
+        assertNotSame(ticket1, ticket2);
     }
 
 

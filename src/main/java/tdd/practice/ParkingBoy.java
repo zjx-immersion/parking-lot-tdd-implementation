@@ -39,5 +39,9 @@ public class ParkingBoy implements Parkable {
         return this.parkingLots.stream().mapToInt(parkable -> parkable.getAvailableNums()).sum();
     }
 
+    public boolean hasVehicle(String ticket) {
+        return this.parkingLots.stream().anyMatch(parkingLot -> parkingLot.hasVehicle(ticket));
+    }
+
 
 }
