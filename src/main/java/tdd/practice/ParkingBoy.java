@@ -20,6 +20,7 @@ public class ParkingBoy {
         Optional<ParkingLot> curParkingLot = this.parkingLots
                 .stream()
                 .filter(parkingLot -> parkingLot.getAvailableNums() > 0)
+                .sorted((parkingLot1, parkingLot2) -> parkingLot2.getAvailableNums() - parkingLot1.getAvailableNums())
                 .findFirst();
         String ticket = curParkingLot.get().parking(vehicle1);
 
