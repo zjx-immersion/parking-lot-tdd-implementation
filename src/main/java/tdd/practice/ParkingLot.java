@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * Created by jxzhong on 2018/5/15.
  */
-public class ParkingLot {
+public class ParkingLot implements Parkable {
     private final int totalPlaceNum;
     private int baseTicket;
     private Map<String, Vehicle> parkingRooms;
@@ -21,6 +21,7 @@ public class ParkingLot {
         return this.totalPlaceNum - parkingRooms.size();
     }
 
+    @Override
     public String parking(Vehicle vehicle) {
 
         if(this.parkingRooms.size() >= this.totalPlaceNum){
@@ -31,6 +32,7 @@ public class ParkingLot {
         return newTicket;
     }
 
+    @Override
     public Vehicle pickUp(String ticket) {
         Vehicle vehicle = this.parkingRooms.get(ticket);
         parkingRooms.remove(ticket);

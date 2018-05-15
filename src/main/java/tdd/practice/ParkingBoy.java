@@ -33,4 +33,11 @@ public class ParkingBoy implements Parkable {
                 .filter(parkingLot -> parkingLot.hasVehicle(ticket))
                 .findFirst().get().pickUp(ticket);
     }
+
+    @Override
+    public int getAvailableNums() {
+        return this.parkingLots.stream().mapToInt(parkable -> parkable.getAvailableNums()).sum();
+    }
+
+
 }
