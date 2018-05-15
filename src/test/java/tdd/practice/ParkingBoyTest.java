@@ -44,21 +44,5 @@ public class ParkingBoyTest {
         assertEquals(vehicle2, pickedVehicle2);
     }
 
-    @Test
-    public void should_parking_car_when_this_parking_lot_has_most_available_parking_rooms() throws Exception {
-        //given
-        ParkingLot parkingLot1 = new ParkingLot(1);
-        ParkingLot parkingLot2 = new ParkingLot(2);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot1, parkingLot2);
-        Vehicle vehicle1 = new Vehicle();
 
-        //when
-        String ticket1 = parkingBoy.parking(vehicle1);
-
-
-        //then
-        assertEquals(1, parkingLot1.getAvailableNums());
-        assertEquals(1, parkingLot2.getAvailableNums());
-
-    }
 }
