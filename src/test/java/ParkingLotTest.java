@@ -11,7 +11,7 @@ import static junit.framework.Assert.assertNotSame;
 public class ParkingLotTest {
 
     @Test
-    public void should_get_1_available_place_when_parking_lot_is_empty_and_1_total_place() throws Exception {
+    public void should_get_1_available_parking_room_when_parking_lot_is_empty_and_1_total_place() throws Exception {
         //given
         Parkinglot parkinglot = new Parkinglot(1);
         //when
@@ -53,5 +53,8 @@ public class ParkingLotTest {
 
     }
 
+    @Test
+    public void should_throw_outofrange_exception_when_parking_vehicle_more_than_total_room_num() throws Exception {
 
+    }
 }

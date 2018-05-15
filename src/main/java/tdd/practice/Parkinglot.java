@@ -11,8 +11,8 @@ public class Parkinglot {
     private int baseTicket;
     private Map<String, Vehicle> parkingRooms;
 
-    public Parkinglot(int totalPlaceNum) {
-        this.totalPlaceNum = totalPlaceNum;
+    public Parkinglot(int totalParkingRoomNum) {
+        this.totalPlaceNum = totalParkingRoomNum;
         this.parkingRooms = new HashMap<String, Vehicle>();
         this.baseTicket = 100;
     }
