@@ -13,9 +13,9 @@ public class ParkingLotTest {
     @Test
     public void should_get_1_available_parking_room_when_parking_lot_is_empty_and_1_total_place() throws Exception {
         //given
-        Parkinglot parkinglot = new Parkinglot(1);
+        ParkingLot parkingLot = new ParkingLot(1);
         //when
-        int availableNum = parkinglot.getAvailableNums();
+        int availableNum = parkingLot.getAvailableNums();
 
         //then
         assertEquals(1, availableNum);
@@ -24,46 +24,46 @@ public class ParkingLotTest {
     @Test
     public void should_parking_vehicle_success_when_call_packing() throws Exception {
         //given
-        Parkinglot parkinglot = new Parkinglot(2);
+        ParkingLot parkingLot = new ParkingLot(2);
         Vehicle vehicle = new Vehicle();
         //when
-        String ticket1 = parkinglot.parking(vehicle);
-        String ticket2 = parkinglot.parking(vehicle);
+        String ticket1 = parkingLot.parking(vehicle);
+        String ticket2 = parkingLot.parking(vehicle);
 
         //then
 
         assertEquals(3, ticket1.length());
         assertEquals(3, ticket2.length());
         assertNotSame(ticket2, ticket1);
-        assertEquals(0, parkinglot.getAvailableNums());
+        assertEquals(0, parkingLot.getAvailableNums());
     }
 
     @Test
     public void should_get_indicated_vehicle_when_get_vehicle_via_park_ticket_and_not_only_one_car_in_lot() throws Exception {
         //given
-        Parkinglot parkinglot = new Parkinglot(2);
+        ParkingLot parkingLot = new ParkingLot(2);
         Vehicle vehicle1 = new Vehicle();
         Vehicle vehicle2 = new Vehicle();
-        String ticket1 = parkinglot.parking(vehicle1);
-        String ticket2 = parkinglot.parking(vehicle2);
+        String ticket1 = parkingLot.parking(vehicle1);
+        String ticket2 = parkingLot.parking(vehicle2);
         //when
-        Vehicle pickedVehicle = parkinglot.pickUp(ticket1);
+        Vehicle pickedVehicle = parkingLot.pickUp(ticket1);
 
         //then
         assertEquals(vehicle1, pickedVehicle);
-        assertEquals(1, parkinglot.getAvailableNums());
+        assertEquals(1, parkingLot.getAvailableNums());
 
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
     public void should_throw_outofrange_exception_when_parking_vehicle_more_than_total_room_num() throws Exception {
         //given
-        Parkinglot parkinglot = new Parkinglot(2);
+        ParkingLot parkingLot = new ParkingLot(2);
         Vehicle vehicle = new Vehicle();
         //when
-        parkinglot.parking(vehicle);
-        parkinglot.parking(vehicle);
-        parkinglot.parking(vehicle);
+        parkingLot.parking(vehicle);
+        parkingLot.parking(vehicle);
+        parkingLot.parking(vehicle);
 
         //then
     }
@@ -73,12 +73,12 @@ public class ParkingLotTest {
     public void should_get_2_available_parking_room_when_parking_lot_has_3_rooms_with_two_vehicle_parked() throws Exception {
 
         //given
-        Parkinglot parkinglot = new Parkinglot(3);
+        ParkingLot parkingLot = new ParkingLot(3);
         Vehicle vehicle = new Vehicle();
-        String ticket1 = parkinglot.parking(vehicle);
+        String ticket1 = parkingLot.parking(vehicle);
 
         //when
-        int availableNum = parkinglot.getAvailableNums();
+        int availableNum = parkingLot.getAvailableNums();
 
         //then
         assertEquals(2, availableNum);
