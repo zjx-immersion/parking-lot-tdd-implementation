@@ -35,6 +35,7 @@ public class ParkingLotTest {
         assertEquals(3, ticket1.length());
         assertEquals(3, ticket2.length());
         assertNotSame(ticket2, ticket1);
+        assertEquals(0, parkinglot.getAvailableNums());
     }
 
     @Test
@@ -50,6 +51,7 @@ public class ParkingLotTest {
 
         //then
         assertEquals(vehicle1, pickedVehicle);
+        assertEquals(1, parkinglot.getAvailableNums());
 
     }
 
@@ -66,8 +68,10 @@ public class ParkingLotTest {
         //then
     }
 
+    //测测是可以删除
     @Test
     public void should_get_2_available_parking_room_when_parking_lot_has_3_rooms_with_two_vehicle_parked() throws Exception {
+
         //given
         Parkinglot parkinglot = new Parkinglot(3);
         Vehicle vehicle = new Vehicle();

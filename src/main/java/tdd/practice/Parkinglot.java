@@ -32,6 +32,8 @@ public class Parkinglot {
     }
 
     public Vehicle pickUp(String ticket) {
-        return this.parkingRooms.get(ticket);
+        Vehicle vehicle = this.parkingRooms.get(ticket);
+        parkingRooms.remove(ticket);
+        return vehicle;
     }
 }
