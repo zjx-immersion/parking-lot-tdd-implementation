@@ -22,6 +22,10 @@ public class Parkinglot {
     }
 
     public String parking(Vehicle vehicle) {
+
+        if(this.parkingRooms.size() >= this.totalPlaceNum){
+            throw new IndexOutOfBoundsException("Parking Rooms are full!");
+        }
         String newTicket = String.valueOf(this.baseTicket++);
         this.parkingRooms.put(newTicket, vehicle);
         return newTicket;

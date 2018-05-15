@@ -53,8 +53,16 @@ public class ParkingLotTest {
 
     }
 
-    @Test
+    @Test(expected = IndexOutOfBoundsException.class)
     public void should_throw_outofrange_exception_when_parking_vehicle_more_than_total_room_num() throws Exception {
+        //given
+        Parkinglot parkinglot = new Parkinglot(2);
+        Vehicle vehicle = new Vehicle();
+        //when
+        parkinglot.parking(vehicle);
+        parkinglot.parking(vehicle);
+        parkinglot.parking(vehicle);
 
+        //then
     }
 }
