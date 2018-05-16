@@ -1,6 +1,11 @@
 package tdd.practice;
 
+import com.sun.deploy.util.StringUtils;
+
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.joining;
 
 /**
  * Created by jxzhong on 2018/5/16.
@@ -14,7 +19,6 @@ public class ParkingReport {
         this.roleName = roleName;
         this.reports = reports;
         this.parkingVehicleNum = this.reports.stream().mapToInt(ParkingReport::getParkingVehicleNum).sum();
-
     }
 
     public ParkingReport(String roleName, int parkingVehicleNum) {
@@ -29,5 +33,18 @@ public class ParkingReport {
 
     public String getRoleName() {
         return roleName;
+    }
+
+    public String renderReport(String prefix) {
+
+        String reportLine = this.roleName + " " + this.parkingVehicleNum;
+        String toNextLine = "\r\n";
+        String lineHeader = "  ";
+        String subReportLines = "";
+        if (this.reports != null) {
+            subReportLines = this.reports.stream()
+                    .map(report -> toNextLine + report.renderReport(prefix + lineHeader)).collect(joining());
+        }
+        return prefix + reportLine + subReportLines;
     }
 }
