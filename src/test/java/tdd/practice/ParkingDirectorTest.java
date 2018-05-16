@@ -3,6 +3,7 @@ package tdd.practice;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertNull;
 
 /**
@@ -23,7 +24,8 @@ public class ParkingDirectorTest {
         ParkingReport report = parkingDirector.generateReport();
 
         //then
-        assertNull(report);
+        assertNotNull(report);
+        assertEquals(0, report.getParkingVehicleNum());
     }
 
     @Test
