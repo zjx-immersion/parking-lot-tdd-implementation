@@ -1,7 +1,10 @@
 package tdd.practice;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 /**
  * Created by jxzhong on 2018/5/15.
@@ -9,8 +12,8 @@ import java.util.List;
 public class ParkingManager {
     private final List<Parkable> parkableList;
 
-    public ParkingManager(Parkable ...parkables) {
-        this.parkableList = Arrays.asList(parkables) ;
+    public ParkingManager(Parkable... parkables) {
+        this.parkableList = Arrays.asList(parkables);
     }
 
     public String parking(Vehicle vehicle) {
@@ -28,5 +31,11 @@ public class ParkingManager {
                 .filter(parkable -> parkable.hasVehicle(ticket))
                 .findFirst().get()
                 .pickUp(ticket);
+    }
+
+    public ParkingReport generateReport() {
+        List<ParkingReport> reports = this.parkableList.stream().map(Parkable::generateReport)
+                .collect(Collectors.toList());
+        return new ParkingReport("M", reports);
     }
 }

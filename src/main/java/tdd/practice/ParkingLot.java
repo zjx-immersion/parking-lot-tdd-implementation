@@ -43,6 +43,11 @@ public class ParkingLot implements Parkable {
         return parkingRooms.containsKey(ticket);
     }
 
+    @Override
+    public ParkingReport generateReport() {
+        return new ParkingReport("P", parkingRooms.size());
+    }
+
     public double getAvailableRate() {
         return this.getAvailableNums() / this.totalPlaceNum;
     }

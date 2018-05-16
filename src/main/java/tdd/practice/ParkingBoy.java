@@ -3,6 +3,7 @@ package tdd.practice;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * Created by jxzhong on 2018/5/15.
@@ -41,6 +42,12 @@ public class ParkingBoy implements Parkable {
 
     public boolean hasVehicle(String ticket) {
         return this.parkingLots.stream().anyMatch(parkingLot -> parkingLot.hasVehicle(ticket));
+    }
+
+    @Override
+    public ParkingReport generateReport() {
+        List<ParkingReport> reports = this.parkingLots.stream().map(Parkable::generateReport).collect(Collectors.toList());
+        return new ParkingReport("B", reports);
     }
 
 
