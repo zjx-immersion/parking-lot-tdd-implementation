@@ -13,7 +13,7 @@ public class ParkingLot implements Parkable {
 
     public ParkingLot(int totalParkingRoomNum) {
         this.totalPlaceNum = totalParkingRoomNum;
-        this.parkingRooms = new HashMap<String, Vehicle>();
+        this.parkingRooms = new HashMap<>();
 //        this.baseTicket = 100;
     }
 
